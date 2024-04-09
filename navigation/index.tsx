@@ -24,7 +24,11 @@ export default function RootStack() {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="Details" component={Details} />
+        <Stack.Screen
+          name="Details"
+          component={Details}
+          options={{ headerTitle: 'MOVIE INFORMATION' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

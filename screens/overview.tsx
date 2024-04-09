@@ -1,6 +1,5 @@
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { ScreenContent } from 'components/ScreenContent';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 import { RootStackParamList } from '../navigation';
@@ -53,7 +52,7 @@ export default function Overview() {
   return (
     <View style={styles.container}>
       <View style={styles.containerTitle}>
-        <Text style={styles.titleMovies}>FILMES</Text>
+        <Text style={styles.titleMovies}>MOVIES</Text>
       </View>
       <View style={styles.listMovies}>
         <FlatList
@@ -61,7 +60,7 @@ export default function Overview() {
           keyExtractor={(item) => item.id.toString()}
           renderItem={({ item }) => (
             <TouchableOpacity
-              onPress={() => navigation.navigate('Details', { name: item.title })}
+              onPress={() => navigation.navigate('Details', { movieDetails: item })}
               style={styles.containerMovie}>
               <Image source={{ uri: item.posterUrl }} style={styles.moviePoster} />
               <Text style={styles.movieTitle}>{item.title}</Text>
@@ -106,7 +105,7 @@ export const styles = StyleSheet.create({
   moviePoster: {
     width: 150,
     height: 250,
-    borderRadius: 15,
+    borderRadius: 10,
     margin: 10,
   },
   containerMovie: {
